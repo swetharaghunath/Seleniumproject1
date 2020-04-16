@@ -38,7 +38,7 @@ public class TestBase {
 		}
 		
 		try {
-			fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\properties\\Config.properties");
+			fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\properties\\OR.properties");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -51,15 +51,15 @@ public class TestBase {
 		}
 		
 		if(config.getProperty("browser").equals("firefox")) {
-			System.setProperty("webdriver.chrome.driver", System.getProperty("User.dir")+"src\\test\\resources\\executables\\geckodriver");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\executables\\geckodriver");
 			driver = new FirefoxDriver();
 		}
 		else if(config.getProperty("browser").equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", System.getProperty("User.dir")+"src\\test\\resources\\executables\\chromedriver");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\executables\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		else if(config.getProperty("browser").equals("IE")) {
-			System.setProperty("webdriver.chrome.driver", System.getProperty("User.dir")+"src\\test\\resources\\executables\\IEDriverServer");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\executables\\IEDriverServer");
 			driver = new ChromeDriver();
 		}
 		driver.get(config.getProperty("testsiteurl"));
@@ -69,7 +69,9 @@ public class TestBase {
 	}
 	
 	public void tearDown() {
-		
+		/*
+		 * if(driver!=null) { driver.quit(); }
+		 */
 	}
 	
 }
